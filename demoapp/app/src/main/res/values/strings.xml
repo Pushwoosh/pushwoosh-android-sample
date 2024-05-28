@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">demoapp</string>
+    <string name="title_home">Actions</string>
+    <string name="title_notifications">Settings</string>
+</resources>
