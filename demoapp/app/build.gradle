@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-
+    implementation libs.google.services
     implementation libs.appcompat
     implementation libs.material
     implementation libs.constraintlayout
@@ -40,7 +40,16 @@ dependencies {
     implementation libs.lifecycle.viewmodel.ktx
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
+
+    implementation libs.pushwoosh.firebase
+    implementation libs.firebase.messaging
+
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
 }
+
+apply {
+    libs.google.services
+}
+
