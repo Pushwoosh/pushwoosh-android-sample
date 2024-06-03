@@ -31,7 +31,7 @@ apply {
 ```
 
 ## 4. Next, open your project in Android Studio. Go Tools > Firebase > Cloud Messaging and click "Set up Firebase Cloud Messaging".
-## Connect your app with Firebase, grant Android Studio access to your Google account (if needed), and choose your Firebase project.
+Connect your app with Firebase, grant Android Studio access to your Google account (if needed), and choose your Firebase project.
 
 ## 5. Then add FCM to your application and accept changes
 
