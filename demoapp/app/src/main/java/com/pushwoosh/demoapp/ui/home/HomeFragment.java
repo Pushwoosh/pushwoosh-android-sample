@@ -51,6 +51,8 @@ public class HomeFragment extends Fragment {
         Button postEvent = binding.button3;
         Switch attributes = binding.switch3;
 
+        //
+
         setTags.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
