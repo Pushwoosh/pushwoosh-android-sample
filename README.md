@@ -51,8 +51,5 @@ Where:
 
 ### The guide for SDK integration is available on Pushwoosh [website](https://docs.pushwoosh.com/platform-docs/pushwoosh-sdk/android-push-notifications/firebase-integration/integrate-pushwoosh-android-sdk).
 
-Documentation:
-https://github.com/Pushwoosh/pushwoosh-ios-sdk/tree/master/Documentation
-
 Pushwoosh team
 http://www.pushwoosh.com
