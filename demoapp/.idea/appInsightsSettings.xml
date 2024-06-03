@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.pushwoosh.demoapp" />
-                  <option name="mobileSdkAppId" value="1:245850018966:android:eaacc8127f129907" />
-                  <option name="projectId" value="multisender-test" />
-                  <option name="projectNumber" value="245850018966" />
+                  <option name="appId" value="PLACEHOLDER" />
+                  <option name="mobileSdkAppId" value="" />
+                  <option name="projectId" value="" />
+                  <option name="projectNumber" value="" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

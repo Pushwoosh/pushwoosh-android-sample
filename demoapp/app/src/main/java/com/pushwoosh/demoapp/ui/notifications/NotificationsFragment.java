@@ -29,10 +29,10 @@ public class NotificationsFragment extends Fragment {
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch switch1 = binding.switch1;
-        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch switch2 = binding.switch2;
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch registerForRemoteNotification = binding.switch1;
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch communicationServerEnable = binding.switch2;
 
-        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        registerForRemoteNotification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -43,7 +43,7 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
-        switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        communicationServerEnable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
