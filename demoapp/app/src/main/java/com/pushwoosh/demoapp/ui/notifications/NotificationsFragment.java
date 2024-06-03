@@ -47,9 +47,9 @@ public class NotificationsFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    // Switch is checked
+                    Pushwoosh.getInstance().startServerCommunication();
                 } else {
-                    // Switch is unchecked
+                    Pushwoosh.getInstance().stopServerCommunication();
                 }
             }
         });

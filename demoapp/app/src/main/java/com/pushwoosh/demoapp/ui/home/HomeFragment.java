@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,7 @@ import java.util.Objects;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private boolean attributeState;
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -63,15 +65,32 @@ public class HomeFragment extends Fragment {
         // GET USER ID ELEMENTS
         Button getUserId = binding.button7;
 
-        // GET APPLICATION CODE
+        // GET APPLICATION CODE ELEMENTS
         Button getApplicationCode = binding.button8;
+
+        // CLEAR NOTIFICATION CENTER ELEMENT
+        Button clearNotificationCenter = binding.button9;
+
+        attributes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    attributeState = true;
+                } else {
+                    attributeState = false;
+                }
+            }
+        });
 
         setTags.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String value1 = Objects.requireNonNull(textInput1.getText()).toString();
                 String value2 = Objects.requireNonNull(textInput2.getText()).toString();
-
+                int intValue2 = Integer.parseInt(value2);
+                TagsBundle tag = new TagsBundle.Builder().putInt(value1, intValue2)
+                        .build();
+                Pushwoosh.getInstance().setTags(tag);
             }
         });
 
@@ -87,7 +106,15 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String eventName = Objects.requireNonNull(postEventTextField.getText()).toString();
-                PushwooshInApp.getInstance().postEvent(eventName);
+                if (attributeState) {
+                    String value1 = "attributes";
+                    int value2 = 10;
+                    TagsBundle attributes = new TagsBundle.Builder().putInt(value1, value2)
+                            .build();
+                    PushwooshInApp.getInstance().postEvent(eventName, attributes);
+                } else {
+                    PushwooshInApp.getInstance().postEvent(eventName);
+                }
             }
         });
 
@@ -128,6 +155,13 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 String applicationCode = Pushwoosh.getInstance().getApplicationCode();
                 Log.d("", "APPLICATION CODE = " + applicationCode);
+            }
+        });
+
+        clearNotificationCenter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Pushwoosh.getInstance().clearLaunchNotification();
             }
         });
 
