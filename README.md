@@ -43,6 +43,7 @@ Connect your app with Firebase, grant Android Studio access to your Google accou
 
 ```
 Where:
+
 ```com.pushwoosh.appid``` is your Pushwoosh Application Code
 
 ```com.pushwoosh.senderid``` is the Sender ID you received from Firebase Console 
