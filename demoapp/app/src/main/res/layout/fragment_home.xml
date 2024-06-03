@@ -90,7 +90,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textInput4"
+                android:id="@+id/textInput5"
                 android:hint="EVENT NAME" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,6 +114,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/textInput4"
                 android:hint="'en'" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,7 +128,7 @@
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SHOW PUSH TOKEN" />
+            android:text="GET PUSH TOKEN" />
 
         <Button
             android:id="@+id/button6"

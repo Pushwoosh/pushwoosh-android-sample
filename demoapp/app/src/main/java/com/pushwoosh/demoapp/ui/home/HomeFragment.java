@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Switch;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -37,21 +36,35 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // SET TAGS
+        // SET TAGS ELEMENTS
         TextInputEditText textInput1 = binding.textInput1;
         TextInputEditText textInput2 = binding.textInput2;
         Button setTags = binding.button;
 
-        // REGISTER USER
+        // REGISTER USER ELEMENTS
         TextInputEditText registerUserTextField = binding.textInput3;
         Button registerUser = binding.button2;
 
-        // POST EVENT
+        // POST EVENT ELEMENTS
         TextInputEditText postEventTextField = binding.textInput4;
         Button postEvent = binding.button3;
         Switch attributes = binding.switch3;
 
-        //
+        // SET LANGUAGE ELEMENTS
+        TextInputEditText setLanguageTextField = binding.textInput5;
+        Button  setLanguage = binding.button4;
+
+        // GET PUSH TOKEN ELEMENTS
+        Button getPushToken = binding.button5;
+
+        // GET HWID ELEMENTS
+        Button getHwid = binding.button6;
+
+        // GET USER ID ELEMENTS
+        Button getUserId = binding.button7;
+
+        // GET APPLICATION CODE
+        Button getApplicationCode = binding.button8;
 
         setTags.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +88,46 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 String eventName = Objects.requireNonNull(postEventTextField.getText()).toString();
                 PushwooshInApp.getInstance().postEvent(eventName);
+            }
+        });
+
+        setLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String language = Objects.requireNonNull(setLanguageTextField.getText()).toString();
+                Pushwoosh.getInstance().setLanguage(language);
+            }
+        });
+
+        getPushToken.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String pushToken = Pushwoosh.getInstance().getPushToken();
+                Log.d("", "Push Token = " + pushToken);
+            }
+        });
+
+        getHwid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String hwid = Pushwoosh.getInstance().getHwid();
+                Log.d("", "HWID = " + hwid);
+            }
+        });
+
+        getUserId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userId = Pushwoosh.getInstance().getUserId();
+                Log.d("", "USER ID = " + userId);
+            }
+        });
+
+        getApplicationCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String applicationCode = Pushwoosh.getInstance().getApplicationCode();
+                Log.d("", "APPLICATION CODE = " + applicationCode);
             }
         });
 
