@@ -20,8 +20,6 @@ import com.pushwoosh.demoapp.databinding.FragmentHomeBinding;
 import com.pushwoosh.inapp.PushwooshInApp;
 import com.pushwoosh.tags.TagsBundle;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {

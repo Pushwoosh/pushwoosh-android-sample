@@ -1,5 +1,4 @@
 [versions]
-agp = "8.4.0"
 firebaseMessaging = "24.0.0"
 googleServices = "4.4.1"
 junit = "4.13.2"
@@ -12,7 +11,7 @@ lifecycleLivedataKtx = "2.8.0"
 lifecycleViewmodelKtx = "2.8.0"
 navigationFragment = "2.7.7"
 navigationUi = "2.7.7"
-pushwooshFirebase = "6.7.5"
+pushwooshFirebase = "6.7.15"
 
 [libraries]
 firebase-messaging = { module = "com.google.firebase:firebase-messaging", version.ref = "firebaseMessaging" }
@@ -28,7 +27,3 @@ lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-view
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
 pushwoosh-firebase = { module = "com.pushwoosh:pushwoosh-firebase", version.ref = "pushwooshFirebase" }
-
-[plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-
