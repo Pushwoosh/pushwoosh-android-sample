@@ -51,7 +51,6 @@ dependencies {
     androidTestImplementation libs.espresso.core
 }
 
-apply {
-    libs.google.services
-}
+apply plugin: "com.google.gms.google-services"
+
 
