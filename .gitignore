@@ -2,6 +2,7 @@
 .gradle
 /local.properties
 **/.idea/
+**/google-services.json
 .DS_Store
 **/build/
 /build
