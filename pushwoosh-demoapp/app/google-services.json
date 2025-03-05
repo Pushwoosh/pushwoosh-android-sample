@@ -3,7 +3,7 @@
     "project_number": "245850018966",
     "firebase_url": "https://multisender-test.firebaseio.com",
     "project_id": "multisender-test",
-    "storage_bucket": "multisender-test.firebasestorage.app"
+    "storage_bucket": "multisender-test.appspot.com"
   },
   "client": [
     {
@@ -739,42 +739,6 @@
         "mobilesdk_app_id": "1:245850018966:android:dfdd182231d4a10c",
         "android_client_info": {
           "package_name": "com.pushwoosh.testingapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "245850018966-nvj7bc5rtm4b9qbopfg6cf5vq5ectot0.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCbXMs67a69fn-paDXSyScOYTTiKbG7zc4"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "245850018966-nvj7bc5rtm4b9qbopfg6cf5vq5ectot0.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "245850018966-g07jr5rqaoblqevi9e077ke7ephjbr3r.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.pushwooshDemo"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:245850018966:android:fe85a5190ba333baa7deb7",
-        "android_client_info": {
-          "package_name": "com.pushwoosh.unitydemo"
         }
       },
       "oauth_client": [
