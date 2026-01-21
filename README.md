@@ -1,10 +1,16 @@
 # Pushwoosh Android SDK Sample
 
-## Sample Application Screenshots
-
 This repository contains a complete working example of Pushwoosh Android SDK integration.
 
-<img src="https://github.com/Pushwoosh/pushwoosh-android-sample/blob/main/Screenshots/Android_1.png" alt="Main Screen" width="300"> <img src="https://github.com/Pushwoosh/pushwoosh-android-sample/blob/main/Screenshots/Android_2.png" alt="Settings Screen" width="300">
+The sample app demonstrates:
+- Push notification registration and handling
+- Setting user tags for segmentation
+- User ID registration for cross-device tracking
+- Posting in-app events
+- Retrieving device info (push token, HWID, user ID)
+- Live Update notifications (Android 15+)
+
+Browse the source code to see how each feature is implemented.
 
 ## Quick Start
 
@@ -13,11 +19,11 @@ To set up and use this sample application, follow our comprehensive integration 
 📖 **[Pushwoosh Android SDK Quick Start Guide](https://docs.pushwoosh.com/developer/pushwoosh-sdk/android-sdk/firebase-integration/quick-start/)**
 
 The guide includes:
-- ✅ Step-by-step setup instructions
-- ✅ Firebase configuration
-- ✅ Required dependencies
-- ✅ AndroidManifest.xml configuration
-- ✅ Testing and verification
+- Step-by-step setup instructions
+- Firebase configuration
+- Required dependencies
+- AndroidManifest.xml configuration
+- Testing and verification
 
 ## Need Help?
 
