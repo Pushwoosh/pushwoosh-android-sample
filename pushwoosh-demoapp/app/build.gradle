@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.jetbrains.kotlin.android'
 
+def isLocalBuild = rootProject.findProject(':pushwoosh') != null
+
+if (isLocalBuild) {
+    apply from: '../scripts/buildSdk/build.gradle'
+    apply from: '../scripts/prepareAar/build.gradle'
+    apply from: '../scripts/buildSdk/configureDependencies.gradle'
+}
+
 android {
     namespace 'com.pushwoosh.demoapp'
     compileSdk 35
@@ -18,6 +26,9 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.debug
+            if (isLocalBuild) {
+                debuggable true
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -34,6 +45,29 @@ android {
     }
 }
 
+// Pushwoosh SDK modules — single list for both local and Maven builds.
+// To add a new module: just append to this list.
+def pushwooshModules = [
+    'pushwoosh',
+    'pushwoosh-firebase',
+    'pushwoosh-badge',
+    'pushwoosh-calls',
+    'pushwoosh-location',
+    'pushwoosh-amazon',
+    'pushwoosh-huawei',
+    'pushwoosh-inbox',
+    'pushwoosh-inbox-ui',
+]
+
+// In standalone Maven builds, exclude legacy Android Support Library pulled transitively
+// by some SDK modules (e.g. pushwoosh-badge) to avoid duplicate class errors vs androidx.core.
+// Not needed in local builds where project dependencies don't cause this conflict.
+if (!isLocalBuild) {
+    configurations.all {
+        exclude group: 'com.android.support'
+    }
+}
+
 dependencies {
     implementation libs.google.services
     implementation libs.play.services.location
@@ -45,11 +79,19 @@ dependencies {
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
     implementation libs.firebase.messaging
+    implementation libs.swiperefreshlayout
+    implementation libs.work.runtime
+    implementation libs.glide
 
-    implementation libs.pushwoosh.firebase
-    implementation libs.pushwoosh.calls
-    implementation libs.pushwoosh.inbox.ui
-    implementation libs.pushwoosh.location
+    // Pushwoosh SDK — auto-switch between project refs and Maven artifacts
+    def pwVersion = libs.versions.pushwooshFirebase.get()
+    pushwooshModules.each { module ->
+        if (isLocalBuild) {
+            debugApi project(":$module")
+        } else {
+            implementation "com.pushwoosh:$module:$pwVersion"
+        }
+    }
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
@@ -58,8 +100,8 @@ dependencies {
 
 apply plugin: "com.google.gms.google-services"
 
-googleServices {
-    disableVersionCheck = true
+if (!isLocalBuild) {
+    googleServices {
+        disableVersionCheck = true
+    }
 }
-
-
